@@ -19,12 +19,15 @@
 		1181B2CC1AF56A9900D4AA5E /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181B2CB1AF56A9900D4AA5E /* RequestTableViewCell.swift */; };
 		1181B2CE1AF7CC0200D4AA5E /* AddRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */; };
 		1181B2D01AF8019600D4AA5E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181B2CF1AF8019600D4AA5E /* DataModel.swift */; };
+		11CBFCD01AFBCF9A004BD7FA /* construction_worker_gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */; };
+		11CBFCD21AFBD03D004BD7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */; };
+		11CBFCD41AFBD4AF004BD7FA /* construction_worker_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */; };
+		11CBFCD61AFC097E004BD7FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CBFCD51AFC097E004BD7FA /* MapViewController.swift */; };
 		11DB28661AF9780C0081724A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB28651AF9780C0081724A /* User.swift */; };
 		11DB28681AFAAF980081724A /* pothole.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11DB28671AFAAF980081724A /* pothole.jpg */; };
 		11DB286A1AFAB7970081724A /* EditServiceRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB28691AFAB7970081724A /* EditServiceRequestTableViewController.swift */; };
 		11DCD4291A8E84A3009A9851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCD4281A8E84A3009A9851 /* AppDelegate.swift */; };
 		11DCD42E1A8E84A3009A9851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DCD42C1A8E84A3009A9851 /* Main.storyboard */; };
-		11DCD4301A8E84A3009A9851 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DCD42F1A8E84A3009A9851 /* Images.xcassets */; };
 		11DCD4331A8E84A3009A9851 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DCD4311A8E84A3009A9851 /* LaunchScreen.xib */; };
 		11DCD43F1A8E84A4009A9851 /* City_Issue_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCD43E1A8E84A4009A9851 /* City_Issue_TrackerTests.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,10 @@
 		1181B2CB1AF56A9900D4AA5E /* RequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
 		1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestTableViewController.swift; sourceTree = "<group>"; };
 		1181B2CF1AF8019600D4AA5E /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_gray.jpg; sourceTree = "<group>"; };
+		11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_blur.jpg; sourceTree = "<group>"; };
+		11CBFCD51AFC097E004BD7FA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		11DB28651AF9780C0081724A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11DB28671AFAAF980081724A /* pothole.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pothole.jpg; sourceTree = "<group>"; };
 		11DB28691AFAB7970081724A /* EditServiceRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditServiceRequestTableViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +66,6 @@
 		11DCD4271A8E84A3009A9851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11DCD4281A8E84A3009A9851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11DCD42D1A8E84A3009A9851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		11DCD42F1A8E84A3009A9851 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		11DCD4321A8E84A3009A9851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		11DCD4381A8E84A4009A9851 /* City Issue TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "City Issue TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DCD43D1A8E84A4009A9851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 				1181B2CB1AF56A9900D4AA5E /* RequestTableViewCell.swift */,
 				1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */,
 				11DB28691AFAB7970081724A /* EditServiceRequestTableViewController.swift */,
+				11CBFCD51AFC097E004BD7FA /* MapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -144,8 +151,8 @@
 				116464A51AD347CC005E38A2 /* Model */,
 				11DCD4281A8E84A3009A9851 /* AppDelegate.swift */,
 				11DCD42C1A8E84A3009A9851 /* Main.storyboard */,
-				11DCD42F1A8E84A3009A9851 /* Images.xcassets */,
 				11DCD4311A8E84A3009A9851 /* LaunchScreen.xib */,
+				11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */,
 				11DCD4261A8E84A3009A9851 /* Supporting Files */,
 			);
 			path = "City Issue Tracker";
@@ -154,6 +161,8 @@
 		11DCD4261A8E84A3009A9851 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */,
+				11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */,
 				11DB28671AFAAF980081724A /* pothole.jpg */,
 				1181B2C71AF55D7D00D4AA5E /* house-on-fire.jpg */,
 				11DCD4271A8E84A3009A9851 /* Info.plist */,
@@ -259,10 +268,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				11DCD42E1A8E84A3009A9851 /* Main.storyboard in Resources */,
+				11CBFCD01AFBCF9A004BD7FA /* construction_worker_gray.jpg in Resources */,
 				1181B2C81AF55D7D00D4AA5E /* house-on-fire.jpg in Resources */,
 				11DCD4331A8E84A3009A9851 /* LaunchScreen.xib in Resources */,
-				11DCD4301A8E84A3009A9851 /* Images.xcassets in Resources */,
+				11CBFCD21AFBD03D004BD7FA /* Assets.xcassets in Resources */,
 				11DB28681AFAAF980081724A /* pothole.jpg in Resources */,
+				11CBFCD41AFBD4AF004BD7FA /* construction_worker_blur.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +304,7 @@
 				1181B2CE1AF7CC0200D4AA5E /* AddRequestTableViewController.swift in Sources */,
 				111FD6461AF40717003495C2 /* SwiftyJSON.swift in Sources */,
 				111FD6481AF4137F003495C2 /* RequestsTableViewController.swift in Sources */,
+				11CBFCD61AFC097E004BD7FA /* MapViewController.swift in Sources */,
 				116464AE1AD615B3005E38A2 /* Mediator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

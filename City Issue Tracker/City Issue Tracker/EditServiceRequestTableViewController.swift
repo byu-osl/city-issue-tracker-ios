@@ -39,6 +39,14 @@ class EditServiceRequestTableViewController: UITableViewController, Subscriber {
         self.serviceRequestTypeLabel.text = self.serviceRequest.serviceCode as String
         self.serviceDescriptionTextView.text = self.serviceRequest.serviceDescription as String
         self.addressTextView.text = self.serviceRequest.addressString as String
+        
+        // Set the color of the nav bar title
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor(red: 0.647, green: 0.643, blue: 0.631, alpha: 1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as [NSObject : AnyObject]
+        
+        // remove the underline color of the nav bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     override func didReceiveMemoryWarning() {

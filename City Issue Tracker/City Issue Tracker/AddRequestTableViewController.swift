@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class AddServiceRequestTableViewController: UITableViewController, Subscriber {
+class AddServiceRequestTableViewController: UITableViewController,  Subscriber {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var requestPhoto: UIImageView!
@@ -18,6 +19,9 @@ class AddServiceRequestTableViewController: UITableViewController, Subscriber {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var mediator: Mediator
+    
+    // To autodetect user locations
+    var locationManager = CLLocationManager()
     
     var potholeServiceCode: NSString = "POTH"
     
@@ -34,23 +38,53 @@ class AddServiceRequestTableViewController: UITableViewController, Subscriber {
     
     @IBAction func unwindToAddRequest(segue: UIStoryboardSegue)
     {
-        var takePhotoViewController: TakePhotoViewController = segue.sourceViewController as! TakePhotoViewController
-        
-        if takePhotoViewController.photoSaved
+        if segue.sourceViewController is TakePhotoViewController
         {
-            self.requestPhoto.image = takePhotoViewController.photoToSave
+            var takePhotoViewController: TakePhotoViewController = segue.sourceViewController as! TakePhotoViewController
+            
+            if takePhotoViewController.photoSaved
+            {
+                self.requestPhoto.image = takePhotoViewController.photoToSave
+            }
+        }
+        
+        if segue.sourceViewController is MapViewController
+        {
+            var mapViewController: MapViewController = segue.sourceViewController as! MapViewController
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set the color of the nav bar title
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor(red: 0.647, green: 0.643, blue: 0.631, alpha: 1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as [NSObject : AnyObject]
+        
+        // remove the underline color of the nav bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func autoDetectPressed(sender: UIButton) {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.description
+    }
+    
+    // Check if the user has authorized their location usage
+    func checkLocationAuthorizationStatus()
+    {
+        if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse
+        {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.

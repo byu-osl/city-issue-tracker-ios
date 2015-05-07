@@ -36,10 +36,19 @@ class RequestsTableViewController: UITableViewController, Subscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set the color of the nav bar title
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor(red: 0.647, green: 0.643, blue: 0.631, alpha: 1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as [NSObject : AnyObject]
+        
+        // remove the underline color of the nav bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    @IBAction func unwindToList(seque: UIStoryboardSegue)
+    @IBAction func unwindToRequests(seque: UIStoryboardSegue)
     {
+        //
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,11 +67,8 @@ class RequestsTableViewController: UITableViewController, Subscriber {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1;
     }
 

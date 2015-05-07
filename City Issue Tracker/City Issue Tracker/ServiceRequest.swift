@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class ServiceRequest: NSObject
+class ServiceRequest: NSObject, MKAnnotation
 {
     var serviceID: NSString = ""
     var status: NSString = ""
@@ -23,55 +24,16 @@ class ServiceRequest: NSObject
     
     var photo: UIImage
     
+    // MapKit elements
+    var title: String
+    var coordinate: CLLocationCoordinate2D
+    
     override init()
     {
         self.photo = UIImage()
+        self.title = ""
+        self.coordinate = CLLocationCoordinate2D() // empty coord
     }
-    
-//    func setServiceID(serviceID: NSString)
-//    {
-//        self.serviceID = serviceID
-//    }
-//    
-//    func setStatus(status: String)
-//    {
-//        self.status = status
-//    }
-//    
-//    func setRequestedDatatime(requestedDatatime: String)
-//    {
-//        self.requestedDatetime = requestedDatatime
-//    }
-//    
-//    func setLong(long: String)
-//    {
-//        self.long = long
-//    }
-//    
-//    func setLat(lat: String)
-//    {
-//        self.lat = lat
-//    }
-//    
-//    func setV(v: Int)
-//    {
-//        self.v = v
-//    }
-//    
-//    func setServiceCode(serviceCode: String)
-//    {
-//        self.serviceCode = serviceCode
-//    }
-//    
-//    func setDescription(description: String)
-//    {
-//        self.description = description
-//    }
-//    
-//    func setAddressString(addressString: String)
-//    {
-//        self.addressString = addressString
-//    }
 }
 
 

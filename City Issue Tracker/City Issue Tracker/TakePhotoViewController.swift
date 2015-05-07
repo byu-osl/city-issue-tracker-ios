@@ -39,7 +39,11 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
-
+    // Hide the status bar so it's not in the way of the camera!
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
