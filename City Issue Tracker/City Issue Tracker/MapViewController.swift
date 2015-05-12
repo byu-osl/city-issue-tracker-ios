@@ -9,13 +9,21 @@
 import UIKit
 import MapKit
 
-
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var locationManager = CLLocationManager()
-    let regionRadius: CLLocationDistance = 1000
+    var locationManager: CLLocationManager
+//    var mapLocation: CLLocation?
+    var mapRegion: MKCoordinateRegion?
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        self.locationManager = CLLocationManager()
+        
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +37,28 @@ class MapViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         // Set initial location
-//        let initialLocation = CLLocation(latitude: 40.25, longitude: -111.65)
-//        centerMapOnLocation(initialLocation)
+        self.loadMap()
         
 //        checkLocationAuthorizationStatus()
         locationManager.requestWhenInUseAuthorization()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        if segue.destinationViewController is AddServiceRequestTableViewController
+        {
+            var destVC: AddServiceRequestTableViewController = segue.destinationViewController as! AddServiceRequestTableViewController
+            
+            var senderButton: UIBarButtonItem = sender as! UIBarButtonItem
+            
+            if senderButton == self.saveButton
+            {
+//                var mapCentLat = mapView.centerCoordinate.latitude
+//                var mapCentLong =  mapView.centerCoordinate.longitude
+//                destVC.mapLocation = CLLocation(latitude: mapCentLat, longitude: mapCentLong)
+                destVC.mapRegion = mapView.region
+            }
+        }
     }
     
     func checkLocationAuthorizationStatus()
@@ -45,36 +69,13 @@ class MapViewController: UIViewController {
         }
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        checkLocationAuthorizationStatus()
-//    }
-    
-    
-    
-    
-    
-    
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
+    func loadMap() {
+        mapView.region = self.mapRegion!
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

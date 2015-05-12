@@ -44,22 +44,17 @@ class RequestsTableViewController: UITableViewController, Subscriber {
         // remove the underline color of the nav bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-    }
-    
-    @IBAction func unwindToRequests(seque: UIStoryboardSegue)
-    {
-        //
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.destinationViewController is EditServiceRequestTableViewController
-        {
-            var selectedServiceRequest: ServiceRequest = self.serviceRequests[self.selectedCellIndex]
-            
-            let destVC = segue.destinationViewController as! EditServiceRequestTableViewController
-            destVC.serviceRequest = selectedServiceRequest
-        }
+        // Get some fresh data
+        self.refreshServiceRequests()
+    }
+    
+    
+    // We want fresh data!
+    func refreshServiceRequests()
+    {
+        var event: GetServiceRequestsArrayEvent = GetServiceRequestsArrayEvent()
+        self.mediator.postEvent(event)
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,7 +79,8 @@ class RequestsTableViewController: UITableViewController, Subscriber {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestTableViewCell
         
-        cell.titleLabel.text = serviceRequests[indexPath.row].serviceID as? String
+        cell.titleLabel.text = serviceRequests[indexPath.row].serviceCode as? String
+        cell.titleLabel.text = "Pothole"
         cell.descriptionLabel.text = serviceRequests[indexPath.row].serviceDescription as? String
 
         return cell

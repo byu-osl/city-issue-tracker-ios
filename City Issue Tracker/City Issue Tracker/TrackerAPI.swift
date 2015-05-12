@@ -119,7 +119,7 @@ class TrackerAPI: NSObject, Subscriber{
         
         // Optional elements
         serviceRequestJSON["description"] = JSON(serviceRequest.serviceDescription)
-        serviceRequestJSON["media_url"] = UIImageToJSON(serviceRequest.photo)
+//        serviceRequestJSON["media_url"] = UIImageToJSON(serviceRequest.photo)
         
         // User elements
 //        serviceRequestJSON["email"] = JSON()

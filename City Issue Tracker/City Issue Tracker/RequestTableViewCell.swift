@@ -27,8 +27,8 @@ class RequestTableViewCell: UITableViewCell {
         let houseView = UIImageView(image: houseImage!)
         
         // Put the image inside a circle
-        houseView.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
-        houseView.layer.cornerRadius = 32
+        houseView.frame = CGRect(x: 0, y: 0, width: 83, height: 83)
+        houseView.layer.cornerRadius = 41
         houseView.layer.masksToBounds = true
         
         // Change the selected color
