@@ -26,7 +26,7 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
     // To autodetect user locations
     var locationManager: CLLocationManager
 //    var mapLocation: CLLocation
-    let mapLocation = CLLocation(latitude: 40.25, longitude: -111.65)
+    var mapLocation = CLLocation(latitude: 40.25, longitude: -111.65)
     var mapRegion: MKCoordinateRegion
     var userSelectedAutoDetect: Bool
     var selectedCodeCell: ServiceCodeCollectionViewCell?

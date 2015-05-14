@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		111FD6461AF40717003495C2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FD6451AF40717003495C2 /* SwiftyJSON.swift */; };
-		111FD6481AF4137F003495C2 /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FD6471AF4137F003495C2 /* RequestsTableViewController.swift */; };
 		1134C5081AB7C7DC00A3320A /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1134C5071AB7C7DC00A3320A /* ServiceRequest.swift */; };
 		116464AA1AD34926005E38A2 /* TrackerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116464A91AD34926005E38A2 /* TrackerAPI.swift */; };
 		116464AE1AD615B3005E38A2 /* Mediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116464AD1AD615B3005E38A2 /* Mediator.swift */; };
@@ -19,6 +18,9 @@
 		1181B2CE1AF7CC0200D4AA5E /* AddRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */; };
 		1181B2D01AF8019600D4AA5E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1181B2CF1AF8019600D4AA5E /* DataModel.swift */; };
 		119B41EE1B023C7900C49C2D /* target_64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 119B41ED1B023C7900C49C2D /* target_64@2x.png */; };
+		11B73B1B1B040A9100412AD7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B73B1A1B040A9100412AD7 /* AccountViewController.swift */; };
+		11B73B1D1B04283700412AD7 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */; };
+		11B73B1F1B042EDD00412AD7 /* camera_64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B73B1E1B042EDD00412AD7 /* camera_64@2x.png */; };
 		11CBFCD01AFBCF9A004BD7FA /* construction_worker_gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */; };
 		11CBFCD21AFBD03D004BD7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */; };
 		11CBFCD41AFBD4AF004BD7FA /* construction_worker_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */; };
@@ -51,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		111FD6451AF40717003495C2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		111FD6471AF4137F003495C2 /* RequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
 		1134C5071AB7C7DC00A3320A /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		116464A91AD34926005E38A2 /* TrackerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerAPI.swift; sourceTree = "<group>"; };
 		116464AD1AD615B3005E38A2 /* Mediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
@@ -62,6 +63,9 @@
 		1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestTableViewController.swift; sourceTree = "<group>"; };
 		1181B2CF1AF8019600D4AA5E /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		119B41ED1B023C7900C49C2D /* target_64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target_64@2x.png"; sourceTree = "<group>"; };
+		11B73B1A1B040A9100412AD7 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
+		11B73B1E1B042EDD00412AD7 /* camera_64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_64@2x.png"; sourceTree = "<group>"; };
 		11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_gray.jpg; sourceTree = "<group>"; };
 		11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_blur.jpg; sourceTree = "<group>"; };
@@ -121,12 +125,13 @@
 		116464A71AD347DC005E38A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				111FD6471AF4137F003495C2 /* RequestsTableViewController.swift */,
 				1181B2CB1AF56A9900D4AA5E /* RequestTableViewCell.swift */,
 				1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */,
 				11CBFCD51AFC097E004BD7FA /* MapViewController.swift */,
 				11CBFCDB1AFC403D004BD7FA /* ServiceCodeCollectionViewCell.swift */,
 				11CBFCDF1AFD557A004BD7FA /* HomeViewController.swift */,
+				11B73B1A1B040A9100412AD7 /* AccountViewController.swift */,
+				11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		11DCD4261A8E84A3009A9851 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				11B73B1E1B042EDD00412AD7 /* camera_64@2x.png */,
 				11CBFCEB1AFD96ED004BD7FA /* picture.png */,
 				11CBFCEC1AFD96ED004BD7FA /* user_circle.png */,
 				11CBFCED1AFD96ED004BD7FA /* target.png */,
@@ -292,6 +298,7 @@
 				11CBFCD01AFBCF9A004BD7FA /* construction_worker_gray.jpg in Resources */,
 				11CBFCEF1AFD96ED004BD7FA /* user_circle.png in Resources */,
 				1181B2C81AF55D7D00D4AA5E /* house-on-fire.jpg in Resources */,
+				11B73B1F1B042EDD00412AD7 /* camera_64@2x.png in Resources */,
 				11CBFCEA1AFD95D8004BD7FA /* target_24@2x.png in Resources */,
 				119B41EE1B023C7900C49C2D /* target_64@2x.png in Resources */,
 				11CBFCE91AFD95D8004BD7FA /* picture_24@2x.png in Resources */,
@@ -321,7 +328,9 @@
 			files = (
 				11DB28661AF9780C0081724A /* User.swift in Sources */,
 				117182C51AF94ED3002FEF8F /* Events.swift in Sources */,
+				11B73B1B1B040A9100412AD7 /* AccountViewController.swift in Sources */,
 				11DCD4291A8E84A3009A9851 /* AppDelegate.swift in Sources */,
+				11B73B1D1B04283700412AD7 /* UserInfoTableViewCell.swift in Sources */,
 				1134C5081AB7C7DC00A3320A /* ServiceRequest.swift in Sources */,
 				116464AA1AD34926005E38A2 /* TrackerAPI.swift in Sources */,
 				11CBFCE01AFD557A004BD7FA /* HomeViewController.swift in Sources */,
@@ -330,7 +339,6 @@
 				116464B01AD61769005E38A2 /* Subscriber.swift in Sources */,
 				1181B2CE1AF7CC0200D4AA5E /* AddRequestTableViewController.swift in Sources */,
 				111FD6461AF40717003495C2 /* SwiftyJSON.swift in Sources */,
-				111FD6481AF4137F003495C2 /* RequestsTableViewController.swift in Sources */,
 				11CBFCD61AFC097E004BD7FA /* MapViewController.swift in Sources */,
 				11CBFCDC1AFC403D004BD7FA /* ServiceCodeCollectionViewCell.swift in Sources */,
 				116464AE1AD615B3005E38A2 /* Mediator.swift in Sources */,

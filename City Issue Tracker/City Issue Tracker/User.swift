@@ -21,26 +21,6 @@ class User: NSObject
     {
         self.isLoggedIn = false
     }
-    
-//    func setEmail(email: NSString)
-//    {
-//        self.email = email
-//    }
-//    
-//    func setFirstName(firstName: NSString)
-//    {
-//        self.firstName = firstName
-//    }
-//    
-//    func setLastName(lastName: NSString)
-//    {
-//        self.lastName = lastName
-//    }
-//    
-//    func setPhone(phone: NSString)
-//    {
-//        self.phone = phone
-//    }
 }
 
 

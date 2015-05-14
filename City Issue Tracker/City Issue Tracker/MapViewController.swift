@@ -53,9 +53,9 @@ class MapViewController: UIViewController {
             
             if senderButton == self.saveButton
             {
-//                var mapCentLat = mapView.centerCoordinate.latitude
-//                var mapCentLong =  mapView.centerCoordinate.longitude
-//                destVC.mapLocation = CLLocation(latitude: mapCentLat, longitude: mapCentLong)
+                var mapCentLat = mapView.centerCoordinate.latitude
+                var mapCentLong =  mapView.centerCoordinate.longitude
+                destVC.mapLocation = CLLocation(latitude: mapCentLat, longitude: mapCentLong)
                 destVC.mapRegion = mapView.region
             }
         }

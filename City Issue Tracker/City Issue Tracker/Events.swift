@@ -22,22 +22,22 @@ class ReloadServiceRequestsFromServerEvent: Event
     init(){}
 }
 
-class GetServiceRequestsJSONEvent: Event
-{
-    /* Created when a subscriber wants the requestsJSON */
-    init(){}
-}
-
-class ServiceRequestsJSONEvent: Event
-{
-    /* Created to deliver the requestsJSON data */
-    var requestsJSON: JSON
-    
-    init(requestsJSON: JSON)
-    {
-        self.requestsJSON = requestsJSON
-    }
-}
+//class GetServiceRequestsJSONEvent: Event
+//{
+//    /* Created when a subscriber wants the requestsJSON */
+//    init(){}
+//}
+//
+//class ServiceRequestsJSONEvent: Event
+//{
+//    /* Created to deliver the requestsJSON data */
+//    var requestsJSON: JSON
+//    
+//    init(requestsJSON: JSON)
+//    {
+//        self.requestsJSON = requestsJSON
+//    }
+//}
 
 class GetServiceRequestsArrayEvent: Event
 {

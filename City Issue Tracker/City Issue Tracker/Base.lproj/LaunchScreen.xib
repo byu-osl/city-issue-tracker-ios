@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,13 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="construction_worker_blur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sdo-eH-Qqa">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2BA-qM-oRq">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.2784313725" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--- City Issue Tracker ---" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="26" y="305" width="323" height="57"/>
+                    <rect key="frame" x="26" y="600" width="323" height="59"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="57" id="pq5-xk-gse"/>
+                        <constraint firstAttribute="height" constant="59" id="drQ-kN-arB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                     <color key="textColor" red="0.81176470590000005" green="0.62745098040000002" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -26,20 +28,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="4VJ-qB-fSr"/>
-                <constraint firstAttribute="bottom" secondItem="sdo-eH-Qqa" secondAttribute="bottom" id="5tu-Hx-DHz"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="sdo-eH-Qqa" secondAttribute="centerY" id="DU8-ao-ScE"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="sdo-eH-Qqa" secondAttribute="centerX" id="L6z-pD-VZS"/>
-                <constraint firstItem="sdo-eH-Qqa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NbT-To-q6n"/>
-                <constraint firstAttribute="trailing" secondItem="sdo-eH-Qqa" secondAttribute="trailing" id="UEK-wP-ntL"/>
-                <constraint firstItem="sdo-eH-Qqa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="guY-Lv-9jT"/>
+                <constraint firstAttribute="trailing" secondItem="2BA-qM-oRq" secondAttribute="trailing" id="6hM-6y-FFF"/>
+                <constraint firstItem="2BA-qM-oRq" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="A5F-PY-ny6"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="CLG-Md-NGD"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="Nrc-vv-hSf"/>
+                <constraint firstItem="2BA-qM-oRq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XBK-fS-ump"/>
+                <constraint firstItem="2BA-qM-oRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YLX-bc-m0M"/>
+                <constraint firstAttribute="bottom" secondItem="2BA-qM-oRq" secondAttribute="bottom" id="bW6-Mh-5kV"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="construction_worker_blur.jpg" width="1898" height="1374"/>
-    </resources>
 </document>

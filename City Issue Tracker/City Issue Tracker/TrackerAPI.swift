@@ -60,10 +60,10 @@ class TrackerAPI: NSObject, Subscriber{
             self.reloadDataFromServer()
         }
         
-        if event is GetServiceRequestsJSONEvent
-        {
-            self.sendRequestsJSON()
-        }
+//        if event is GetServiceRequestsJSONEvent
+//        {
+//            self.sendRequestsJSON()
+//        }
         
         if event is SaveServiceRequestEvent
         {
@@ -77,15 +77,12 @@ class TrackerAPI: NSObject, Subscriber{
     func postServiceRequest(serviceRequest: ServiceRequest)
     {
         var serviceRequestJSON: [String: AnyObject] = self.convertServiceRequestToJSON(serviceRequest).dictionaryObject!
-        let url = NSURL(string: "http://localhost:3000/requests.json")
+        let url = NSURL(string: "http://localhost:3000/requests")
         let request = NSMutableURLRequest(URL: url!)
         
-        println(serviceRequestJSON.toURLString())
-        
+        println("Body:")
         let data : NSData = serviceRequestJSON.toURLString().dataUsingEncoding(NSUTF8StringEncoding)!;
         request.HTTPBody = data;
-        println("Body:")
-        println(request.HTTPBody)
         
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -115,11 +112,12 @@ class TrackerAPI: NSObject, Subscriber{
         
         // Required elements
         serviceRequestJSON["service_code"] = JSON(serviceRequest.serviceCode)
+        println(serviceRequest.serviceCode)
         serviceRequestJSON["address_string"] = JSON(serviceRequest.addressString)
         
         // Optional elements
         serviceRequestJSON["description"] = JSON(serviceRequest.serviceDescription)
-//        serviceRequestJSON["media_url"] = UIImageToJSON(serviceRequest.photo)
+        serviceRequestJSON["media_url"] = JSON(UIImageToString(serviceRequest.photo))
         
         // User elements
 //        serviceRequestJSON["email"] = JSON()
@@ -169,35 +167,22 @@ class TrackerAPI: NSObject, Subscriber{
         return scaledImage
     }
     
-    func UIImageToJSON(image: UIImage) -> JSON
+    func UIImageToString(image: UIImage) -> String
     {
         var shrunkImage: UIImage = shrinkImage(image)
-        var imageString: NSData = UIImageJPEGRepresentation(shrunkImage, 0.8)
-        let imageBase64String = imageString.base64EncodedStringWithOptions(.allZeros)
-        var imageJSON: JSON = JSON(imageBase64String)
-        return imageJSON
-    }
-    
-    func JSONToUIImage(imageDataJSON: JSON) -> UIImage
-    {
-        var base64ImageData: String = imageDataJSON.string!
-        let decodedData: NSData = NSData(base64EncodedString: base64ImageData, options: NSDataBase64DecodingOptions(rawValue: 0))!
-        var image: UIImage = UIImage(data: decodedData)!
-        return image
-    }
-    
-    func sendRequestsJSON()
-    {
-        /* Send all the requestsJSON data to the mediator through an event */
+        var imageString: NSData = UIImageJPEGRepresentation(shrunkImage, 0.2)
+        var imageBase64String = imageString.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        var event: Event = ServiceRequestsJSONEvent(requestsJSON: self.requestsJSON)
-        self.mediator.postEvent(event)
+        return imageBase64String
     }
     
-    func saveRequestsJSON(inputJSON: JSON)
+    func StringToUIImage(imageDataString: String) -> UIImage
     {
-        self.requestsJSON = inputJSON
-        self.sendRequestsJSON() // notify the mediator of new stuff!
+        // regex hack
+        let imageDataStringWithoutSpaces = imageDataString.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        let decodedData = NSData(base64EncodedString: imageDataStringWithoutSpaces, options: NSDataBase64DecodingOptions(rawValue: 0))
+        var decodedimage = UIImage(data: decodedData!)
+        return decodedimage!
     }
     
     func reloadDataFromServer()
@@ -223,16 +208,95 @@ class TrackerAPI: NSObject, Subscriber{
             {
                 let response = NSString(data: data, encoding: NSUTF8StringEncoding)
                 var requestsJSON = JSON(data: data)
-                self.saveRequestsJSON(requestsJSON)
+                self.processRequestsJSON(requestsJSON) // send the JSON
             }
             else {
                 println(error.localizedDescription)
             }
         }
-        
         return
     }
-   
+    
+    func processRequestsJSON(requestsJSON: JSON)
+    {
+        var serviceRequests: [ServiceRequest] = []
+        
+        for var x=0; x<requestsJSON.count; x++
+        {
+            let requestData = requestsJSON[x]
+            var newRequest: ServiceRequest = createNewRequest(requestData)
+            
+            if !isDuplicateRequest(newRequest, requestsArray: serviceRequests)
+            {
+                serviceRequests.append(newRequest)
+            }
+        }
+        self.sendRequestsArray(serviceRequests) // send out the new array!
+    }
+    
+    func isDuplicateRequest(serviceRequest: ServiceRequest, requestsArray: [ServiceRequest]) -> Bool
+    {
+        for r in requestsArray
+        {
+            if r.serviceID == serviceRequest.serviceID
+            {
+                // It's a dupe!!
+                return true
+            }
+        }
+        return false
+    }
+    
+    func createNewRequest(requestData: JSON) -> ServiceRequest
+    {
+        // Required info
+        var newServiceRequest = ServiceRequest()
+        newServiceRequest.serviceID = requestData["_id"].string!
+        newServiceRequest.status = requestData["status"].string!
+        newServiceRequest.requestedDatetime = requestData["requested_datetime"].string!
+        newServiceRequest.serviceCode = requestData["service_code"].string!
+        newServiceRequest.v = requestData["__v"].intValue
+        
+        // Optional info
+        if let addressString: String = requestData["address_string"].string
+        {
+            newServiceRequest.addressString = addressString
+        }
+        
+        if let long: String = requestData["long"].string
+        {
+            newServiceRequest.long = long
+        }
+        
+        if let lat: String = requestData["lat"].string
+        {
+            newServiceRequest.lat = lat
+        }
+        
+        if let addressString: String = requestData["long"].string
+        {
+            newServiceRequest.addressString = addressString
+        }
+        
+        if let serviceDescription: String = requestData["description"].string
+        {
+            newServiceRequest.serviceDescription = serviceDescription
+        }
+        
+        if let imageDataString: String = requestData["media_url"].string
+        {
+            var image: UIImage = StringToUIImage(imageDataString)
+            newServiceRequest.photo = image
+        }
+        
+        return newServiceRequest
+    }
+        
+    func sendRequestsArray(serviceRequests: [ServiceRequest])
+    {
+        var event: Event = ServiceRequestsArrayEvent(requestsArray: serviceRequests)
+        self.mediator.postEvent(event)
+    }
 }
 
 

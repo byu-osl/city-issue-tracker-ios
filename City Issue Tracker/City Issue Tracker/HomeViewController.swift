@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var cameraImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // remove the underline color of the nav bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        // Change the color of the camera
+        var image = cameraImageView.image
+        image = image!.imageWithRenderingMode(.AlwaysTemplate)
+        
+//        let imageView = UIImageView
+        cameraImageView.tintColor = UIColor(red: 0.282, green: 0.278, blue: 0.270, alpha: 1.0)
+//        (0.282 0.278 0.270)
+        cameraImageView.image = image
     }
 
     override func didReceiveMemoryWarning() {
