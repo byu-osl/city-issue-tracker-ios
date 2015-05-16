@@ -10,6 +10,7 @@ import Foundation
 
 protocol Event {}
 
+///// General Network Events /////
 class UserLoginSuccessfulEvent: Event
 {
     /* Created after a successful app login */
@@ -22,29 +23,43 @@ class ReloadServiceRequestsFromServerEvent: Event
     init(){}
 }
 
-//class GetServiceRequestsJSONEvent: Event
-//{
-//    /* Created when a subscriber wants the requestsJSON */
-//    init(){}
-//}
-//
-//class ServiceRequestsJSONEvent: Event
-//{
-//    /* Created to deliver the requestsJSON data */
-//    var requestsJSON: JSON
-//    
-//    init(requestsJSON: JSON)
-//    {
-//        self.requestsJSON = requestsJSON
-//    }
-//}
-
-class GetServiceRequestsArrayEvent: Event
+///// User Preferences Events /////
+class UserPreferencesEvent: Event
 {
-    /* Created when a subscriber wants the requests array */
-    init(){}
+    /* Created so the DataModel saves the user preferences */
+    var email: NSString
+    var name: NSString
+    var phone: NSString
+    
+    init(email: NSString, name: NSString, phone: NSString)
+    {
+        self.email = email
+        self.name = name
+        self.phone = phone
+    }
 }
 
+class SaveUserPreferencesEvent: Event
+{
+    /* Created so the DataModel saves the user preferences */
+    var email: NSString
+    var name: NSString
+    var phone: NSString
+    
+    init(email: NSString, name: NSString, phone: NSString)
+    {
+        self.email = email
+        self.name = name
+        self.phone = phone
+    }
+}
+
+class GetUserPreferencesEvent: Event
+{
+    /* Created when a subscriber wants the User Preferences */
+}
+
+///// Service Requests Events /////
 class ServiceRequestsArrayEvent: Event
 {
     /* Created to deliver the requests array */
@@ -64,6 +79,12 @@ class SaveServiceRequestEvent: Event
     {
         self.serviceRequest = serviceRequest
     }
+}
+
+class GetServiceRequestsArrayEvent: Event
+{
+    /* Created when a subscriber wants the requests array */
+    init(){}
 }
 
 

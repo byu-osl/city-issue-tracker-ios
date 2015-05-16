@@ -15,8 +15,6 @@ class RequestTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
-//    var photo: UIImage?
-
     override func awakeFromNib() {
         super.awakeFromNib()
 

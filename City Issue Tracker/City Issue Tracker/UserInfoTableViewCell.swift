@@ -11,7 +11,9 @@ import UIKit
 class UserInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailTextField: UITextField!
+    @IBOutlet weak var userInfoTextField: UserInfoTextField!
+    
+    var cellIndex: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,8 +11,7 @@ import Foundation
 class User: NSObject
 {
     var email: NSString = ""
-    var firstName: NSString = ""
-    var lastName: NSString = ""
+    var name: NSString = ""
     var phone: NSString = ""
     
     var isLoggedIn: Bool

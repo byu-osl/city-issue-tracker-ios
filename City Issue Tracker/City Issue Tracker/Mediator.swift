@@ -24,7 +24,6 @@ class Mediator: NSObject
         self.trackerAPI = TrackerAPI(newMediator: self)
         self.dataModel = DataModel(newMediator: self)
         
-//        self.forceReloadDataFromServer()
         var event: Event = ReloadServiceRequestsFromServerEvent()
         self.postEvent(event)
         
@@ -39,23 +38,9 @@ class Mediator: NSObject
     
     func refreshTimerCalled()
     {
-        var event: Event = ReloadServiceRequestsFromServerEvent()
-        self.postEvent(event)
+//        var event: Event = ReloadServiceRequestsFromServerEvent()
+//        self.postEvent(event)
     }
-    
-//    func forceReloadDataFromServer()
-//    {
-//        /* load and store the newest data */
-//        
-//        trackerAPI.reloadDataFromServer()
-//        var requestsJSON = trackerAPI.getLatestRequestsJSON()
-//        dataModel.processRequests(requestsJSON)
-//    }
-    
-//    func getRequests() -> [Request]
-//    {
-//        return dataModel.getRequests()
-//    }
     
     func postEvent(event: Event)
     {
@@ -64,10 +49,5 @@ class Mediator: NSObject
             s.notify(event)
         }
     }
-    
-//    func notifyOfNewRequests()
-//    {
-//        self.dataModel.processRequests(trackerAPI.getLatestRequestsJSON())
-//        self.notifySubscribers()
-//    }
+
 }

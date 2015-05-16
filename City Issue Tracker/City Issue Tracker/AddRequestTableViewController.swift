@@ -30,6 +30,7 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
     var mapRegion: MKCoordinateRegion
     var userSelectedAutoDetect: Bool
     var selectedCodeCell: ServiceCodeCollectionViewCell?
+    var selectedCodeIndex: Int = 0
     
     // For keyboard event when calculating an address
     var notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
@@ -173,6 +174,10 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
                 if senderButton == self.submitButton
                 {
                     self.createNewServiceRequest()
+                    
+                    // Update the requests too!
+                    var event: Event = ReloadServiceRequestsFromServerEvent()
+                    self.mediator.postEvent(event)
                     return
                 }
             }
@@ -182,8 +187,9 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! ServiceCodeCollectionViewCell
-
-        cell.serviceCodeLabel.text = "Pothole"
+        
+        // convert the indexPath to a readable service code like: "Pothole"
+        cell.serviceCodeLabel.text = ServiceRequest().serviceCodeIntToStr(String(indexPath.row) as NSString) as String
 
         cell.contentView.layer.cornerRadius = 10.0;
         cell.contentView.layer.masksToBounds = true;
@@ -195,15 +201,16 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
         // deselect the previous cell
-        if (selectedCodeCell != nil)
+        if (self.selectedCodeCell != nil)
         {
-            selectedCodeCell?.serviceCodeLabel.backgroundColor = UIColor(red: 0.64705, green: 0.64313, blue: 0.63137, alpha: 1.0)
+            self.selectedCodeCell?.serviceCodeLabel.backgroundColor = UIColor(red: 0.64705, green: 0.64313, blue: 0.63137, alpha: 1.0)
         }
         
         var cell: ServiceCodeCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! ServiceCodeCollectionViewCell
         // set the color to selected
         cell.serviceCodeLabel.backgroundColor = UIColor(red: 0.811, green: 0.627, blue: 0.384, alpha: 1.0)
-        selectedCodeCell = cell
+        self.selectedCodeCell = cell
+        self.selectedCodeIndex = indexPath.row
     }
     
 
@@ -218,7 +225,7 @@ class AddServiceRequestTableViewController: UITableViewController, UICollectionV
     
     func getSelectedServiceCode() -> NSString
     {
-        return "POTH"
+        return String(self.selectedCodeIndex)
     }
     
     func createNewServiceRequest()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Subscriber {
+class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, Subscriber {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,13 +16,19 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var mediator: Mediator
     var serviceRequests: [ServiceRequest]!
     
+    var userEmail: NSString?
+    var userName: NSString?
+    var userPhone: NSString?
+    
     var STATIC_CELL_COUNT: Int = 4
     
     required init(coder aDecoder: NSCoder)
     {
         self.mediator = appDelegate.mediator
+        
         super.init(coder: aDecoder)
         self.mediator.registerSubscriber(self)
+        self.requestUserPreferences()
     }
     
     override func viewDidLoad() {
@@ -41,6 +47,25 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Get some fresh data
         self.refreshServiceRequests()
+    }
+    
+    func requestUserPreferences()
+    {
+        var event: GetUserPreferencesEvent = GetUserPreferencesEvent()
+        self.mediator.postEvent(event)
+    }
+    
+    func updateUserPreferences(event: UserPreferencesEvent)
+    {
+        self.userEmail = event.email
+        self.userName = event.name
+        self.userPhone = event.phone
+    }
+    
+    func saveUserPreferences()
+    {
+        var event: SaveUserPreferencesEvent = SaveUserPreferencesEvent(email: self.userEmail!, name: self.userName!, phone: self.userPhone!)
+        self.mediator.postEvent(event)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -71,30 +96,46 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             if indexPath.row == 0
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UserInfoCell", forIndexPath: indexPath) as! UserInfoTableViewCell
+                
                 cell.titleLabel.text = "Name"
-                cell.detailTextField.text = "Josh"
+                cell.userInfoTextField.text = self.userName as! String
+                cell.userInfoTextField.delegate = self
+                cell.userInfoTextField.cellIndex = indexPath.row
+                
                 return cell
             }
             if indexPath.row == 1
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UserInfoCell", forIndexPath: indexPath) as! UserInfoTableViewCell
+                
                 cell.titleLabel.text = "Email"
-                cell.detailTextField.text = "joshuakcockrell@gmail.com"
+                cell.userInfoTextField.text = self.userEmail as! String
+                cell.userInfoTextField.delegate = self
+                cell.userInfoTextField.cellIndex = indexPath.row
+                
                 return cell
             }
             if indexPath.row == 2
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UserInfoCell", forIndexPath: indexPath) as! UserInfoTableViewCell
+                
                 cell.titleLabel.text = "Phone"
-                cell.detailTextField.text = "801-682-0381"
+                cell.userInfoTextField.text = self.userPhone as! String
+                cell.userInfoTextField.delegate = self
+                cell.userInfoTextField.cellIndex = indexPath.row
+                
                 return cell
             }
             if indexPath.row == 3
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UserInfoCell", forIndexPath: indexPath) as! UserInfoTableViewCell
-                cell.titleLabel.text = "Issues Reported"
-                cell.detailTextField.text = String(self.serviceRequests.count)
                 cell.userInteractionEnabled = false
+                
+                cell.titleLabel.text = "Issues Reported"
+                cell.userInfoTextField.text = String(self.serviceRequests.count)
+                cell.userInfoTextField.delegate = self
+                cell.userInfoTextField.cellIndex = indexPath.row
+                
                 return cell
             }
         }
@@ -103,17 +144,43 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("RequestCell", forIndexPath: indexPath) as! RequestTableViewCell
             
             var request: ServiceRequest = serviceRequests[indexPath.row]
-            cell.titleLabel.text = request.serviceCode as? String
-            cell.titleLabel.text = "Pothole"
+            cell.titleLabel.text = request.getServiceCodeDescription() as? String
             cell.descriptionLabel.text = request.serviceDescription as? String
             cell.thumbnailImageView.image = request.photo
             cell.dateSubmittedLabel.text = request.requestedDatetime as? String
             cell.addressLabel.text = request.addressString as? String
-            println(request.addressString)
             
             return cell
         }
         return UITableViewCell() // error here
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField)
+    {
+        /* This method is called after a user deselects any of the 
+            text fields to edit their user info. Here their info is
+            updated and saved to the AppModel */
+        
+        if textField is UserInfoTextField
+        {
+            var userInfoTextField: UserInfoTextField = textField as! UserInfoTextField
+            var editedCellIndex: Int = userInfoTextField.cellIndex
+            if editedCellIndex == 0
+            {
+                self.userName = userInfoTextField.text
+            }
+            if editedCellIndex == 1
+            {
+                self.userEmail = userInfoTextField.text
+            }
+            if editedCellIndex == 2
+            {
+                self.userPhone = userInfoTextField.text
+            }
+        }
+        
+        // send the changes to the DataModel
+        self.saveUserPreferences()
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -159,6 +226,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             var requestsArrayEvent: ServiceRequestsArrayEvent = event as! ServiceRequestsArrayEvent
             self.serviceRequests = requestsArrayEvent.requestsArray
             self.tableView.reloadData()
+        }
+        if event is UserPreferencesEvent
+        {
+            var upEvent: UserPreferencesEvent = event as! UserPreferencesEvent
+            self.updateUserPreferences(upEvent)
         }
     }
 }

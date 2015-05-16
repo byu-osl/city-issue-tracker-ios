@@ -21,6 +21,7 @@
 		11B73B1B1B040A9100412AD7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B73B1A1B040A9100412AD7 /* AccountViewController.swift */; };
 		11B73B1D1B04283700412AD7 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */; };
 		11B73B1F1B042EDD00412AD7 /* camera_64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B73B1E1B042EDD00412AD7 /* camera_64@2x.png */; };
+		11BFA2751B06CCAD0064B5D4 /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFA2741B06CCAD0064B5D4 /* UserInfoTextField.swift */; };
 		11CBFCD01AFBCF9A004BD7FA /* construction_worker_gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */; };
 		11CBFCD21AFBD03D004BD7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */; };
 		11CBFCD41AFBD4AF004BD7FA /* construction_worker_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */; };
@@ -66,6 +67,7 @@
 		11B73B1A1B040A9100412AD7 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		11B73B1E1B042EDD00412AD7 /* camera_64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_64@2x.png"; sourceTree = "<group>"; };
+		11BFA2741B06CCAD0064B5D4 /* UserInfoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 		11CBFCCF1AFBCF9A004BD7FA /* construction_worker_gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_gray.jpg; sourceTree = "<group>"; };
 		11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		11CBFCD31AFBD4AF004BD7FA /* construction_worker_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = construction_worker_blur.jpg; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				11CBFCDF1AFD557A004BD7FA /* HomeViewController.swift */,
 				11B73B1A1B040A9100412AD7 /* AccountViewController.swift */,
 				11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */,
+				11BFA2741B06CCAD0064B5D4 /* UserInfoTextField.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				1181B2D01AF8019600D4AA5E /* DataModel.swift in Sources */,
 				1181B2CC1AF56A9900D4AA5E /* RequestTableViewCell.swift in Sources */,
 				116464B01AD61769005E38A2 /* Subscriber.swift in Sources */,
+				11BFA2751B06CCAD0064B5D4 /* UserInfoTextField.swift in Sources */,
 				1181B2CE1AF7CC0200D4AA5E /* AddRequestTableViewController.swift in Sources */,
 				111FD6461AF40717003495C2 /* SwiftyJSON.swift in Sources */,
 				11CBFCD61AFC097E004BD7FA /* MapViewController.swift in Sources */,

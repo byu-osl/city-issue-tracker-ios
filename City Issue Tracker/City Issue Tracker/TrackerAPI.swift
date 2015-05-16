@@ -59,12 +59,7 @@ class TrackerAPI: NSObject, Subscriber{
         {
             self.reloadDataFromServer()
         }
-        
-//        if event is GetServiceRequestsJSONEvent
-//        {
-//            self.sendRequestsJSON()
-//        }
-        
+
         if event is SaveServiceRequestEvent
         {
             var saveServiceRequestEvent = event as! SaveServiceRequestEvent
@@ -178,7 +173,7 @@ class TrackerAPI: NSObject, Subscriber{
     
     func StringToUIImage(imageDataString: String) -> UIImage
     {
-        // regex hack
+        // regex hack HARDCORE MESSY
         let imageDataStringWithoutSpaces = imageDataString.stringByReplacingOccurrencesOfString(" ", withString: "+")
         let decodedData = NSData(base64EncodedString: imageDataStringWithoutSpaces, options: NSDataBase64DecodingOptions(rawValue: 0))
         var decodedimage = UIImage(data: decodedData!)

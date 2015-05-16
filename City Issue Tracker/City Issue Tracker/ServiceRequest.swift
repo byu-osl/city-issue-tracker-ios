@@ -12,6 +12,8 @@ import MapKit
 
 class ServiceRequest: NSObject, MKAnnotation
 {
+    var serviceCodes = ["2":"Streetlight", "3":"Pothole"]
+    
     var serviceID: NSString = ""
     var status: NSString = ""
     var requestedDatetime: NSString = ""
@@ -33,6 +35,34 @@ class ServiceRequest: NSObject, MKAnnotation
         self.photo = UIImage()
         self.title = ""
         self.coordinate = CLLocationCoordinate2D() // empty coord
+    }
+    
+    func getServiceCodeDescription() -> NSString
+    {
+        return serviceCodeIntToStr(self.serviceCode)
+    }
+    
+    func serviceCodeIntToStr(intSC: NSString) -> NSString
+    {
+        if let service = self.serviceCodes[intSC as String] {
+            return service
+        }
+        else{
+            return "Nope"
+        }
+    }
+    
+    func serviceCodeStrToInt(strSC: NSString) -> NSString
+    {
+        // loop through all codes, if matching one is found, return it's key
+        for (key,val) in self.serviceCodes {
+            if val == strSC
+            {
+                return key
+            }
+        }
+        // code was not found
+        return "-1"
     }
 }
 

@@ -13,15 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var mediator: Mediator!
-    var user: User
 
     override init(){
         self.mediator = Mediator()
-        self.user = User()
-        self.user.email = "joshuakcockrell@gmail.com"
-        self.user.firstName = "Joshua"
-        self.user.lastName = "Cockrell"
-        self.user.phone = "801-682-0381"
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
