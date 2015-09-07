@@ -127,11 +127,11 @@
 		116464A71AD347DC005E38A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				11CBFCDF1AFD557A004BD7FA /* HomeViewController.swift */,
 				1181B2CB1AF56A9900D4AA5E /* RequestTableViewCell.swift */,
 				1181B2CD1AF7CC0200D4AA5E /* AddRequestTableViewController.swift */,
 				11CBFCD51AFC097E004BD7FA /* MapViewController.swift */,
 				11CBFCDB1AFC403D004BD7FA /* ServiceCodeCollectionViewCell.swift */,
-				11CBFCDF1AFD557A004BD7FA /* HomeViewController.swift */,
 				11B73B1A1B040A9100412AD7 /* AccountViewController.swift */,
 				11B73B1C1B04283700412AD7 /* UserInfoTableViewCell.swift */,
 				11BFA2741B06CCAD0064B5D4 /* UserInfoTextField.swift */,
@@ -168,11 +168,11 @@
 		11DCD4251A8E84A3009A9851 /* City Issue Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				116464A81AD348DA005E38A2 /* TrackerAPI */,
+				11DCD42C1A8E84A3009A9851 /* Main.storyboard */,
 				116464A71AD347DC005E38A2 /* Controller */,
 				116464A51AD347CC005E38A2 /* Model */,
+				116464A81AD348DA005E38A2 /* TrackerAPI */,
 				11DCD4281A8E84A3009A9851 /* AppDelegate.swift */,
-				11DCD42C1A8E84A3009A9851 /* Main.storyboard */,
 				11DCD4311A8E84A3009A9851 /* LaunchScreen.xib */,
 				11CBFCD11AFBD03D004BD7FA /* Assets.xcassets */,
 				11DCD4261A8E84A3009A9851 /* Supporting Files */,
@@ -266,6 +266,7 @@
 				TargetAttributes = {
 					11DCD4221A8E84A3009A9851 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = F6C3HSPNRU;
 					};
 					11DCD4371A8E84A4009A9851 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -468,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "City Issue Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -479,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "City Issue Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
